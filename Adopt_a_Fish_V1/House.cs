@@ -42,6 +42,7 @@ namespace Adopt_a_Fish_V1
 
         public void Display(Player player)
         {
+
             WriteLine($"We are in the house {player.Name}!");
             WriteLine($"You are {player.Age} years old.");
             WriteLine($"And have {player.Money} dollars.");
