@@ -26,8 +26,16 @@ namespace Adopt_a_Fish_V1
         public static int currentHour = 6;
         public static int currentMinute = 0;
         public static bool Has2MinPassed = false; //Once 2 IRL Minutes passed WarmWater - Temp will happen
-        public int WarmWater; //This will have a random value of 8-15
-        // ^Add overload to WarmWater^
+        
+
+        public static Random WarmWater = new Random();
+
+        public static int GetRandomNumber(int max)
+        {
+            return WarmWater.Next(max);
+        }
+        //random value of 8-15
+        // ^Add overload to WarmWater^ Not done with this yet
 
         private static System.Timers.Timer MainTimer;
         private static System.Timers.Timer FiveTimer;

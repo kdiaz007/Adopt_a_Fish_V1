@@ -7,6 +7,8 @@ namespace Adopt_a_Fish_V1
 {
     public class Tank
     {
+        Timer time = new Timer();
+
         public int Temp;
         private bool IsOutofTemp;
         private int IncreaseTemp;
@@ -21,6 +23,11 @@ namespace Adopt_a_Fish_V1
         public void LeaveFish()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void WarmWater()
+        {
+            Temp -= time.WarmWater;
         }
     }
 }
