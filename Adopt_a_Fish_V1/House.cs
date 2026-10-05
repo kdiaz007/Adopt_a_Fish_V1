@@ -21,7 +21,7 @@ namespace Adopt_a_Fish_V1
         public void CheckTime(Player player)
         {
             Program.Screen();
-            Timer.TimeDisplay();
+            WriteLine(Timer.timeDisplay);
         }
 
         public string Input()
@@ -71,6 +71,8 @@ namespace Adopt_a_Fish_V1
                 Program.Screen();
                 Display(player);
             }
+
+            Display(player);
         }
 
         

@@ -35,6 +35,8 @@ namespace Adopt_a_Fish_V1
             WriteLine($"Press any key to start game");
             ReadKey();
 
+            Timer.TimeDisplay();
+
             Screen();
 
             house.Display(player);

@@ -20,6 +20,7 @@ namespace Adopt_a_Fish_V1
         DONE -- Each real life second I will add 128.5714 to the RawTime.
 
         */
+        public static string timeDisplay;
 
         public static double RawTime = 0; //Where time is counted
         public static bool Has5Passed = false; //Once 5 IRL seconds passed the fish will swim. The value in code will be 6
@@ -84,11 +85,11 @@ namespace Adopt_a_Fish_V1
             currentHour = 6 + (int)hoursPassed;
             currentMinute = (int)minutesPassed;
 
-            string timeDisplay = $"{currentHour:D2}:{currentMinute:D2}";
+            timeDisplay = $"{currentHour:D2}:{currentMinute:D2}";
 
 
-            Clear();
-            WriteLine($"The time is {timeDisplay}.");
+            //Clear();
+            //WriteLine($"The time is {timeDisplay}.");
 
             if (Has5Passed == true)
             {
