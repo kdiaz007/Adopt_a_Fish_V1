@@ -4,6 +4,7 @@ Adopt a Fish
 9-17-26
  */
 
+using System.Numerics;
 using static System.Console;
 
 namespace Adopt_a_Fish_V1
@@ -15,15 +16,34 @@ namespace Adopt_a_Fish_V1
             Clear();
         }
 
+        static House house = new House();
+        static Player player = new Player();
+        static Outside outside = new Outside();
+
+        public static void EnterHouse()
+        {
+            house.Display(player);
+        }
+
+        public static void GoOutHouse()
+        {
+            outside.Display(player);
+        }
+
+        public static void LeaveStore()
+        {
+            outside.Display(player);
+        }
+
         static void Main(string[] args)
         {
             Title = ("Adopt a Fish");
 
-            House house = new House();
+            
 
             WriteLine("Hello, World!");
 
-            Player player = new Player();
+            
 
             WriteLine("Please enter your name");
             
@@ -39,8 +59,8 @@ namespace Adopt_a_Fish_V1
 
             Screen();
 
-            house.Display(player);
-
+            
+            EnterHouse();
 
         }
         

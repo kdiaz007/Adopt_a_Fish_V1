@@ -9,7 +9,7 @@ namespace Adopt_a_Fish_V1
 {
     public class Store
     {
-        Outside leaveStore = new Outside();
+        //Outside leaveStore = new Outside();
         private static readonly string[] names = { "Alice", "Lucy", "Jane", "Belle", "Nicole" };
         private static readonly Random random = new Random();
         public string Cashier = names[random.Next(names.Length)];
@@ -69,7 +69,7 @@ namespace Adopt_a_Fish_V1
                         WriteLine("\nLeave Store");
                         ReadKey();
                         Program.Screen();
-                        leaveStore.Display(player);
+                        Program.LeaveStore();
                     }
                     else if (player.HasFish == true && Stock > 0)
                     {
@@ -89,7 +89,7 @@ namespace Adopt_a_Fish_V1
                             WriteLine("\nLeave Store");
                             ReadKey();
                             Program.Screen();
-                            leaveStore.Display(player);
+                            Program.LeaveStore();
                         }
                         else if (player.Money  < FishFood * Stock)
                         {
@@ -101,7 +101,7 @@ namespace Adopt_a_Fish_V1
                             WriteLine($"\n*Come back when you're a little richer {player.Name}*");
                             ReadKey();
                             Program.Screen();
-                            leaveStore.Display(player);
+                            Program.LeaveStore();
                         }
                     }
 
@@ -241,7 +241,7 @@ namespace Adopt_a_Fish_V1
             else
             {
                 Program.Screen();
-                leaveStore.Display(player);
+                Program.LeaveStore();
             }
         }
 

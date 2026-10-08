@@ -16,7 +16,7 @@ namespace Adopt_a_Fish_V1
 {
     public class Outside
     {
-        House enterhouse = new House();
+        //House enterhouse = new House();
         Store enterstore = new Store();
         Job enterjob = new Job();
         private bool IsLocked;
@@ -24,7 +24,7 @@ namespace Adopt_a_Fish_V1
         public void EnterHouse(Player player)
         {
             Program.Screen();
-            enterhouse.Display(player);
+            Program.EnterHouse();
         }
 
         public void EnterJob(Player player)

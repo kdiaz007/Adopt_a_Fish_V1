@@ -9,13 +9,13 @@ namespace Adopt_a_Fish_V1
 {
     public class House
     {
-        Outside outside = new Outside();
+        //Outside outside = new Outside();
         Fish fih = new Fish();
 
         public void LeaveHouse(Player player)
         {
             Program.Screen();
-            outside.Display(player);
+            Program.GoOutHouse();
         }
 
         public void CheckTime(Player player)
