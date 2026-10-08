@@ -15,7 +15,7 @@ namespace Adopt_a_Fish_V1
         public void LeaveHouse(Player player)
         {
             Program.Screen();
-            outside.Display();
+            outside.Display(player);
         }
 
         public void CheckTime(Player player)
