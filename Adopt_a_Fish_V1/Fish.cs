@@ -8,12 +8,11 @@ namespace Adopt_a_Fish_V1
 {
     public class Fish
     {
-        private string Species;
+        private string Species = "Betta splendens";
         private int Age;
         public int Hunger;
         private string Color;
         public int Life;
-        private bool IsOwned;
         private int LifeSpent;
         public string Name;
 
@@ -22,25 +21,6 @@ namespace Adopt_a_Fish_V1
             return ReadLine();
         }
 
-        public void Display(Player player)
-        {
-            if (player.HasFish == false)
-            {
-                WriteLine("We are viewing the fish bowl!");
-                ReadKey();
-                WriteLine("It's kind of depressing with no fish.");
-                ReadKey();
-                WriteLine("I should get one soon.");
-                ReadKey();
-            }
-            else if (player.HasFish == true)
-            {
-                WriteLine("We are viewing the fish bowl");
-                ReadKey();
-               // WriteLine($"How has you day been {fih.Name}?");
-            }
-
-        }
 
         public void Swim()
         {

@@ -41,7 +41,7 @@ namespace Adopt_a_Fish_V1
                 }
                 if (player.HasFish == false && Stock > 0)
                 {
-                    WriteLine($"You currently have one Type Fish ($80.00) in cart, will that be all?");
+                    WriteLine($"You currently have one Betta splendens Fish ($80.00) in cart, will that be all?");
                 }
                 else
                 {

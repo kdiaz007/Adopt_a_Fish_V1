@@ -61,11 +61,6 @@ namespace Adopt_a_Fish_V1
             throw new System.NotImplementedException();
         }
 
-        public void LeaveFish()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void WarmWater()
         {
             //Temp -= time.WarmWater;
