@@ -15,12 +15,31 @@ namespace Adopt_a_Fish_V1
         public int Life;
         private bool IsOwned;
         private int LifeSpent;
-        private string Name;
+        public string Name;
 
-        public void Display()
+        public string Input()
         {
-            WriteLine("We are viewing the fish!");
-            ReadKey();
+            return ReadLine();
+        }
+
+        public void Display(Player player)
+        {
+            if (player.HasFish == false)
+            {
+                WriteLine("We are viewing the fish bowl!");
+                ReadKey();
+                WriteLine("It's kind of depressing with no fish.");
+                ReadKey();
+                WriteLine("I should get one soon.");
+                ReadKey();
+            }
+            else if (player.HasFish == true)
+            {
+                WriteLine("We are viewing the fish bowl");
+                ReadKey();
+               // WriteLine($"How has you day been {fih.Name}?");
+            }
+
         }
 
         public void Swim()

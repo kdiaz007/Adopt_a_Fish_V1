@@ -18,11 +18,13 @@ namespace Adopt_a_Fish_V1
 
         static House house = new House();
         static Player player = new Player();
+        static Fish fih = new Fish(); 
         static Outside outside = new Outside();
+        static Tank tank = new Tank();
 
         public static void EnterHouse()
         {
-            house.Display(player);
+            house.Display(player, fih);
         }
 
         public static void GoOutHouse()
@@ -33,6 +35,11 @@ namespace Adopt_a_Fish_V1
         public static void LeaveStore()
         {
             outside.Display(player);
+        }
+
+        public static void VisitFish()
+        {
+            tank.Display(player, fih);
         }
 
         static void Main(string[] args)

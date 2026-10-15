@@ -10,7 +10,7 @@ namespace Adopt_a_Fish_V1
     public class House
     {
         //Outside outside = new Outside();
-        Fish fih = new Fish();
+        //Fish fih = new Fish();
 
         public void LeaveHouse(Player player)
         {
@@ -29,10 +29,10 @@ namespace Adopt_a_Fish_V1
             return ReadLine();
         }
 
-        public void EnterFish(Player player)
+        public void EnterFish(Player player, Fish fih)
         {
             Program.Screen();
-            fih.Display();
+            Program.VisitFish();
         }
 
         public void Sleep()
@@ -40,7 +40,7 @@ namespace Adopt_a_Fish_V1
             throw new System.NotImplementedException();
         }
 
-        public void Display(Player player)
+        public void Display(Player player, Fish fih)
         {
 
             WriteLine($"We are in the house {player.Name}!");
@@ -58,7 +58,7 @@ namespace Adopt_a_Fish_V1
             }
             else if (Key == "3")
             {
-                EnterFish(player);
+                EnterFish(player, fih);
             }
             else if (Key == "t")
             {
@@ -69,10 +69,10 @@ namespace Adopt_a_Fish_V1
                 WriteLine("Please press valid keys.");
                 ReadKey();
                 Program.Screen();
-                Display(player);
+                Display(player, fih);
             }
 
-            Display(player);
+            Display(player, fih);
         }
 
         

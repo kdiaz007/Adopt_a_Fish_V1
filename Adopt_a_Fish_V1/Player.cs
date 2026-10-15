@@ -10,7 +10,8 @@ namespace Adopt_a_Fish_V1
         public string Name;
         public int Age = 20;
         public double Money = 100;
-        public bool HasFish;
+        public bool HasFish = false;
+        public bool HasNamedFish = false;
         public int FishFood = 0;
 
         public void Adopt()

@@ -14,7 +14,7 @@ namespace Adopt_a_Fish_V1
         private static readonly Random random = new Random();
         public string Cashier = names[random.Next(names.Length)];
         private int ChangeAmt = 1; //What I am using to change the amount in cart
-        private int Stock = 0; //This is what's value is currently in your cart
+        public int Stock = 0; //This is what's value is currently in your cart
         private int FishFood = 20;
 
         public void Payment(Player player)
@@ -22,7 +22,6 @@ namespace Adopt_a_Fish_V1
             WriteLine($"*Attended by Cashier {Cashier}*");
             WriteLine($"\n{Cashier}: Hello, are you ready to purchase?");
             WriteLine("\n1 to Pay, and 2 to Return");
-
             string Key = Input();
 
             if (Key == "1")
@@ -42,11 +41,11 @@ namespace Adopt_a_Fish_V1
                 }
                 if (player.HasFish == false && Stock > 0)
                 {
-                    WriteLine($"You currently have one Type Fish in cart, will that be all?");
+                    WriteLine($"You currently have one Type Fish ($80.00) in cart, will that be all?");
                 }
                 else
                 {
-                    WriteLine($"{Cashier}: You currently have {Stock}x Fish Food in cart, will that be all?");
+                    WriteLine($"{Cashier}: You currently have {Stock}x Fish Food ({FishFood * Stock}.00) in cart, will that be all?");
                 }
                 WriteLine("\n1 Yes, 2 No");
 
@@ -61,11 +60,13 @@ namespace Adopt_a_Fish_V1
                         Program.Screen();
                         WriteLine($"{Cashier}: Your total will be 80 dollars.");
                         WriteLine("\nPay Amount");
+                        ReadKey();
                         player.Money = player.Money - 80;
                         player.HasFish = true;
                         Stock = 0;
-                        WriteLine($"{Cashier}: Here you go.");
+                        WriteLine($"\n{Cashier}: Here you go.");
                         WriteLine($"\n{Cashier}: Have a nice day!");
+                        ReadKey();
                         WriteLine("\nLeave Store");
                         ReadKey();
                         Program.Screen();
@@ -78,14 +79,16 @@ namespace Adopt_a_Fish_V1
                         Program.Screen();
                         WriteLine($"{Cashier}: Your total will be {FishFood * Stock} dollars.");
                         WriteLine("\nPay Amount");
+                        ReadKey();
 
                         if (player.Money >= FishFood * Stock)
                         {
                             player.Money = player.Money - FishFood * Stock;
                             player.FishFood = player.FishFood + Stock;
                             Stock = 0;
-                            WriteLine($"{Cashier}: Here you go.");
+                            WriteLine($"\n{Cashier}: Here you go.");
                             WriteLine($"\n{Cashier}: Have a nice day!");
+                            ReadKey();
                             WriteLine("\nLeave Store");
                             ReadKey();
                             Program.Screen();
@@ -93,11 +96,12 @@ namespace Adopt_a_Fish_V1
                         }
                         else if (player.Money  < FishFood * Stock)
                         {
-                            Stock = 0;
-                            WriteLine($"{Cashier}: Sorry, you do not have enough to purchase this.");
-                            ReadKey();
                             Program.Screen();
+                            Stock = 0;
+                            WriteLine($"\n{Cashier}: Sorry, you do not have enough to purchase this.");
+                            ReadKey();
                             WriteLine("\nYou dramatically run away in shame.");
+                            ReadKey();
                             WriteLine($"\n*Come back when you're a little richer {player.Name}*");
                             ReadKey();
                             Program.Screen();
@@ -149,8 +153,22 @@ namespace Adopt_a_Fish_V1
 
         public void Market(Player player)
         {
-            if (player.HasFish == false)
+            if (player.HasFish == false && Stock >= 1)
             {
+                WriteLine("I bet the fish is pricey enough for now.");
+                ReadKey();
+                WriteLine("I'll buy food for it after buying it.");
+                ReadKey();
+                Program.Screen();
+                Display(player);
+            }
+            else if (player.HasFish == false)
+            {
+                WriteLine("The shelves are rather boring today.");
+                ReadKey();
+                WriteLine("Along one of them you see a fish, and it's on sale.");
+                ReadKey();
+                Program.Screen();
                 WriteLine("Acquire Fish?");
                 WriteLine("\n1 Yes, 2 No");
 
@@ -158,8 +176,8 @@ namespace Adopt_a_Fish_V1
 
                 if (Key == "1")
                 {
+                    Stock++;
                     WriteLine("Added Fish to cart!");
-                    Stock = Stock++;
                     ReadKey();
                     Program.Screen();
                     Display(player);
@@ -190,7 +208,7 @@ namespace Adopt_a_Fish_V1
                 if (Key == "1")
                 {
                     WriteLine("Added Fish Food to cart!");
-                    Stock = Stock++;
+                    Stock++;
                     ReadKey();
                     Program.Screen();
                     Display(player);
@@ -256,16 +274,18 @@ namespace Adopt_a_Fish_V1
 
             if (Key == "1")
             {
-                if (player.HasFish == false && Stock > 1) //Meant to run when you have fish in cart and are trying to add increase amount.
+                if (player.HasFish == false && Stock >= 1) //Meant to run when you have fish in cart and are trying to add increase amount.
                 {
+                    Program.Screen();
                     WriteLine("I can't afford another.");
                     WriteLine("\nLet's be content with just this one.");
                     ReadKey();
                     Program.Screen();
                     Adjust(player);
                 }
-                else if (player.HasFish == true && Stock > 1) //Meant to run after you own fish and are attempting to increase food amount.
+                else if (player.HasFish == true && Stock >= 1) //Meant to run after you own fish and are attempting to increase food amount.
                 {
+                    Program.Screen();
                     Stock = Stock + ChangeAmt;
 
                     WriteLine($"You have {Stock} fish food in cart.");
@@ -275,6 +295,7 @@ namespace Adopt_a_Fish_V1
                 }
                 else //Else if none of the above run, that hopefully means the cart is empty and this below runs as planned.
                 {
+                    Program.Screen();
                     WriteLine("Cart is currently empty.");
                     WriteLine("\n Add items to begin adjusting.");
                     ReadKey();
@@ -284,16 +305,18 @@ namespace Adopt_a_Fish_V1
             }
             else if (Key == "2")
             {
-                if (player.HasFish == false && Stock > 1) //Meant to run when player does not own fish but has it in cart.
+                if (player.HasFish == false && Stock >= 1) //Meant to run when player does not own fish but has it in cart.
                 {
+                    Program.Screen();
                     WriteLine("Should I really leave it? I've been meaning to buy one recently.");
                     WriteLine("\nI should buy it now before I forget.");
                     ReadKey();
                     Program.Screen();
                     Adjust(player);
                 }
-                else if (player.HasFish == true && Stock > 1) //Meant to run when player as fish and is decreasing food amount.
-                { 
+                else if (player.HasFish == true && Stock >= 1) //Meant to run when player as fish and is decreasing food amount.
+                {
+                    Program.Screen();
                     Stock = Stock - ChangeAmt;
                     WriteLine($"You have {Stock} fish food in cart.");
                     ReadKey();
@@ -303,6 +326,7 @@ namespace Adopt_a_Fish_V1
                 }
                 else
                 {
+                    Program.Screen();
                     WriteLine("Cart is currently empty.");
                     WriteLine("\n Add items to begin adjusting.");
                     ReadKey();
@@ -352,18 +376,22 @@ namespace Adopt_a_Fish_V1
 
             if (Key == "1")
             {
+                Program.Screen();
                 Payment(player);
             }
             else if (Key == "2")
             {
+                Program.Screen();
                 Market(player);
             }
             else if (Key == "3")
             {
+                Program.Screen();
                 Adjust(player);
             }
             else if (Key == "4")
             {
+                Program.Screen();
                 LeaveStore(player);
             }
             else if (Key == "t")
