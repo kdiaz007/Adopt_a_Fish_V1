@@ -120,6 +120,12 @@ namespace Adopt_a_Fish_V1
             {
                 Program.FishSwim();
             }
+
+            if (Tank.OnFishDisplayScreen == true)
+            {
+                Clear();
+                Program.VisitFish();
+            }
         }
 
         private static void OnTwoMinTimedEvent(Object source, ElapsedEventArgs e)

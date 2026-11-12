@@ -13,6 +13,7 @@ namespace Adopt_a_Fish_V1
         private bool IsOutofTemp;
         private int OutTempTime;
         public static bool OnCheckTankScreen = false;
+        public static bool OnFishDisplayScreen = false;
 
 
         public string Input()
@@ -21,8 +22,7 @@ namespace Adopt_a_Fish_V1
         }
 
         public void Display(Player player, Fish fih)
-        {
-            OnCheckTankScreen = false;
+        { 
 
             if (player.HasFish == true && player.HasNamedFish == false)
             {
@@ -53,26 +53,29 @@ namespace Adopt_a_Fish_V1
             }
             else if (player.HasFish == true)
             {
-                WriteLine("We are viewing the fish bowl");
-                ReadKey();
+                OnFishDisplayScreen = true;
+
                 WriteLine($"How has you day been {fih.Name}?");
-                ReadKey();
+                WriteLine($"\n{fih.Name} Hunger - \"{fih.Hunger}\"/100");
                 WriteLine("\n1 to feed, 2 to check fish tank, and 3 to go back.");
 
                 string Key = Input();
 
                 if (Key == "1")
                 {
+                    OnFishDisplayScreen = false;
                     Program.Screen();
                     Feed(player, fih);
                 }
                 else if (Key == "2")
                 {
+                    OnFishDisplayScreen = false;
                     Program.Screen();
                     CheckTank(player, fih);
                 }
                 else if (Key == "3")
                 {
+                    OnFishDisplayScreen = false;
                     Program.Screen();
                     Program.EnterHouse();
                 }
@@ -88,12 +91,39 @@ namespace Adopt_a_Fish_V1
 
         public void Feed(Player player, Fish fih)
         {
-            throw new System.NotImplementedException();
+            if (player.FishFood <= 0)
+            {
+                Clear();
+                WriteLine("You don't have any fish food at the moment");
+                ReadKey();
+                Display(player, fih);
+            }
+            else if (player.FishFood >= 1)
+            {
+                Clear();
+                WriteLine($"You current have {player.FishFood} Fish Treat.");
+                WriteLine("\n| 1 to feed 1x Fish Treat | 2 to Leave |");
+
+                string Key = Input();
+
+                if (Key == "1")
+                {
+                    fih.Eat();
+                    Clear();
+                    Display(player, fih);
+                }
+                else if (Key == "2")
+                {
+                    Clear();
+                    Display(player, fih);
+                }
+            }
         }
 
         public void CheckTank(Player player, Fish fih)
         {
             OnCheckTankScreen = true;
+          
             WriteLine("Recommended Temperture = 70-90");
             WriteLine($"\nCurrent Temperture = {Temp}");
 
@@ -105,6 +135,7 @@ namespace Adopt_a_Fish_V1
 
             if(Key == "1")
             {
+                OnCheckTankScreen = false;
                 Program.Screen();
                 Display(player, fih);
             }
