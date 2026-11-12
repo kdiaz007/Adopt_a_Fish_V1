@@ -137,7 +137,7 @@ namespace Adopt_a_Fish_V1
             }
             else if (Key == "t")
             {
-                CheckTime();
+                CheckTime(player);
             }
             else
             {
@@ -342,7 +342,7 @@ namespace Adopt_a_Fish_V1
             }
             else if (Key == "t")
             {
-                CheckTime();
+                CheckTime(player);
             }
             else
             {
@@ -354,10 +354,21 @@ namespace Adopt_a_Fish_V1
 
         }
 
-        public void CheckTime()
+        public void CheckTime(Player player)
         {
             Program.Screen();
             WriteLine(Timer.timeDisplay);
+            Thread.Sleep(500);
+            if (KeyAvailable)
+            {
+
+            }
+            else
+            {
+
+                CheckTime(player);
+            }
+            Clear();
         }
 
         public string Input()
@@ -396,7 +407,7 @@ namespace Adopt_a_Fish_V1
             }
             else if (Key == "t")
             {
-                CheckTime();
+                CheckTime(player);
             }
             else
             {

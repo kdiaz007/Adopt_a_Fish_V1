@@ -27,7 +27,7 @@ namespace Adopt_a_Fish_V1
             house.Display(player, fih);
         }
 
-        public static void GoOutHouse()
+        public static void GoOutside()
         {
             outside.Display(player);
         }

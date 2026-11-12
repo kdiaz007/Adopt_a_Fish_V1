@@ -43,6 +43,17 @@ namespace Adopt_a_Fish_V1
         {
             Program.Screen();
             WriteLine(Timer.timeDisplay);
+            Thread.Sleep(500);
+            if (KeyAvailable)
+            {
+
+            }
+            else
+            {
+
+                CheckTime(player);
+            }
+            Clear();
         }
 
         public string Input()

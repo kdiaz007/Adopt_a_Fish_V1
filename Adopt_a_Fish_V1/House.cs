@@ -12,22 +12,35 @@ namespace Adopt_a_Fish_V1
         //Outside outside = new Outside();
         //Fish fih = new Fish();
 
+        public string Input()
+        {
+            return ReadLine();
+        }
+
         public void LeaveHouse(Player player)
         {
             Program.Screen();
-            Program.GoOutHouse();
+            Program.GoOutside();
         }
 
         public void CheckTime(Player player)
         {
             Program.Screen();
             WriteLine(Timer.timeDisplay);
+            Thread.Sleep(500);
+            if (KeyAvailable)
+            {
+               
+            }
+            else
+            {
+                
+                CheckTime(player);
+            }
+            Clear();
+
         }
 
-        public string Input()
-        {
-            return ReadLine();
-        }
 
         public void EnterFish(Player player, Fish fih)
         {

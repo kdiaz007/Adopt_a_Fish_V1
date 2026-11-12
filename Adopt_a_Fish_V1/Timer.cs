@@ -31,6 +31,11 @@ namespace Adopt_a_Fish_V1
 
         public static Random WarmWater = new Random();
 
+        public static string Input()
+        {
+            return ReadLine();
+        }
+
         public static int GetRandomNumber(int max)
         {
             return WarmWater.Next(max);
@@ -49,6 +54,9 @@ namespace Adopt_a_Fish_V1
             Run2MinTimer();
 
             ReadLine();
+
+           
+            //WriteLine("| Return |");
         }
 
         private static void RunMainTimer()
@@ -118,7 +126,7 @@ namespace Adopt_a_Fish_V1
 
         public static void DayEnd() //Day End will start once RawTime = 6942855.6 <- this number equals 54,000 IRL seconds and will equate to 7 minutes IRL
         {
-            if (RawTime >= 6942855.6) //7 Minutes IRL = The 15 hours you spent In-Game
+            if (RawTime >= 6942855.6) //  6942855.6 --- 7 Minutes IRL = The 15 hours you spent In-Game
             {
                 //I was searching on Google for help on this. Apparently the ? helps in case it goes null and instead of crashing it will just skip it.
                 MainTimer?.Stop();
@@ -128,8 +136,22 @@ namespace Adopt_a_Fish_V1
                 TwoMinTimer?.Stop();
                 TwoMinTimer?.Dispose();
 
+
+                Clear();
                 WriteLine("\nIm feeling tired, I should head to sleep");
-                WriteLine("Press [Enter] to close the window.");
+                WriteLine("Press [X] to close the window.");
+
+                string Key = Input();
+
+                if (Key == "x")
+                {
+                    Clear();
+                    Program.EnterHouse();
+                }
+                else
+                {
+                    DayEnd();
+                }
             }
         }
 
