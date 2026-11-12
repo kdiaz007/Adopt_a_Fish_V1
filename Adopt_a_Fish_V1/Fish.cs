@@ -25,21 +25,20 @@ namespace Adopt_a_Fish_V1
         public void Swim()
         {
             throw new System.NotImplementedException();
+            //Lose 2 Hunger
         }
 
         public void Eat()
         {
             throw new System.NotImplementedException();
+            //Gain 5 Hunger
         }
 
         public void Sleep()
         {
             throw new System.NotImplementedException();
+            //Lose 40 Hunger
         }
 
-        public void Tank()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

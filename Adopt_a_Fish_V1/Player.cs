@@ -14,19 +14,5 @@ namespace Adopt_a_Fish_V1
         public bool HasNamedFish = false;
         public int FishFood = 0;
 
-        public void Adopt()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Feed()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Buy()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
