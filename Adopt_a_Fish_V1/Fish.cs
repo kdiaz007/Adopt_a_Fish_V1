@@ -10,7 +10,7 @@ namespace Adopt_a_Fish_V1
     {
         private string Species = "Betta splendens";
         private int Age;
-        public int Hunger;
+        public int Hunger = 0;
         private string Color;
         public int Life;
         private int LifeSpent;
@@ -22,22 +22,22 @@ namespace Adopt_a_Fish_V1
         }
 
 
-        public void Swim()
+        public void Swim(Player player, Fish fih)
         {
-            throw new System.NotImplementedException();
-            //Lose 2 Hunger
+            Hunger += 2;
+            //Gain 2 Hunger
         }
 
         public void Eat()
         {
-            throw new System.NotImplementedException();
-            //Gain 5 Hunger
+            Hunger -= 5;
+            //Lose 5 Hunger
         }
 
         public void Sleep()
         {
-            throw new System.NotImplementedException();
-            //Lose 40 Hunger
+            Hunger += 40;
+            //Gain 40 Hunger
         }
 
     }

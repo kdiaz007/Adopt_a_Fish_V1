@@ -41,6 +41,18 @@ namespace Adopt_a_Fish_V1
         {
             tank.Display(player, fih);
         }
+        public static void Warming()
+        {
+            tank.WarmWater(player, fih);
+        }
+        public static void TankChecking()
+        {
+            tank.CheckTank(player, fih);
+        }
+        public static void FishSwim()
+        {
+            fih.Swim(player, fih);
+        }
 
         static void Main(string[] args)
         {

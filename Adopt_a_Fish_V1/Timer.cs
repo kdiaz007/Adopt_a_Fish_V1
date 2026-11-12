@@ -36,12 +36,12 @@ namespace Adopt_a_Fish_V1
             return ReadLine();
         }
 
-        public static int GetRandomNumber(int max)
+        public static int GetRandomNumber(int min, int max)
         {
-            return WarmWater.Next(max);
+            return WarmWater.Next(min, max + 1);
         }
         //random value of 8-15
-        // ^Add overload to WarmWater^ Not done with this yet
+        public static int result = GetRandomNumber(8, 15);
 
         private static System.Timers.Timer MainTimer;
         private static System.Timers.Timer FiveTimer;
@@ -98,7 +98,7 @@ namespace Adopt_a_Fish_V1
 
             //Clear();
             //WriteLine($"The time is {timeDisplay}.");
-
+            /*
             if (Has5Passed == true)
             {
                 Has5Passed = false;
@@ -108,19 +108,35 @@ namespace Adopt_a_Fish_V1
             {
                 Has2MinPassed = false;
             }
-
+            */
             DayEnd();
 
         }
 
         private static void OnFiveTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Has5Passed = true;
+            //Has5Passed = true;
+            if (RawTime >= 642.857)
+            {
+                Program.FishSwim();
+            }
         }
 
         private static void OnTwoMinTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Has2MinPassed = true;
+            //Has2MinPassed = true;
+            
+            if (RawTime >= 15428.568)
+            {
+                Program.Warming();
+            }
+
+            if (Tank.OnCheckTankScreen == true)
+            {
+                Clear();
+                Program.TankChecking();
+            }
+
         }
 
 

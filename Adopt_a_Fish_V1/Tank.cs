@@ -12,6 +12,7 @@ namespace Adopt_a_Fish_V1
         public int Temp = 90;
         private bool IsOutofTemp;
         private int OutTempTime;
+        public static bool OnCheckTankScreen = false;
 
 
         public string Input()
@@ -21,6 +22,8 @@ namespace Adopt_a_Fish_V1
 
         public void Display(Player player, Fish fih)
         {
+            OnCheckTankScreen = false;
+
             if (player.HasFish == true && player.HasNamedFish == false)
             {
                 WriteLine("What should I name my new fish?");
@@ -90,6 +93,7 @@ namespace Adopt_a_Fish_V1
 
         public void CheckTank(Player player, Fish fih)
         {
+            OnCheckTankScreen = true;
             WriteLine("Recommended Temperture = 70-90");
             WriteLine($"\nCurrent Temperture = {Temp}");
 
@@ -130,9 +134,9 @@ namespace Adopt_a_Fish_V1
             throw new System.NotImplementedException();
         }
 
-        public void WarmWater()
+        public void WarmWater(Player player, Fish fih)
         {
-            //Temp -= time.WarmWater;
+            Temp = Temp + Timer.result;
         }
     }
 }
