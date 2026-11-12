@@ -20,7 +20,7 @@ namespace Adopt_a_Fish_V1
         static Player player = new Player();
         static Fish fih = new Fish(); 
         static Outside outside = new Outside();
-        static Tank tank = new Tank();
+        
 
         public static void EnterHouse()
         {
@@ -39,15 +39,15 @@ namespace Adopt_a_Fish_V1
 
         public static void VisitFish()
         {
-            tank.Display(player, fih);
+            player.tank.Display(player, fih);
         }
         public static void Warming()
         {
-            tank.WarmWater(player, fih);
+            player.tank.WarmWater(player, fih);
         }
         public static void TankChecking()
         {
-            tank.CheckTank(player, fih);
+            player.tank.CheckTank(player, fih);
         }
         public static void FishSwim()
         {

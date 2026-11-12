@@ -12,8 +12,6 @@ namespace Adopt_a_Fish_V1
         public int Temp = 90;
         private bool IsOutofTemp;
         private int OutTempTime;
-        public static bool OnCheckTankScreen = false;
-        public static bool OnFishDisplayScreen = false;
 
 
         public string Input()
@@ -53,31 +51,35 @@ namespace Adopt_a_Fish_V1
             }
             else if (player.HasFish == true)
             {
-                OnFishDisplayScreen = true;
 
-                WriteLine($"How has you day been {fih.Name}?");
-                WriteLine($"\n{fih.Name} Hunger - \"{fih.Hunger}\"/100");
-                WriteLine("\n1 to feed, 2 to check fish tank, and 3 to go back.");
+                WriteLine($"How has your day been {fih.Name}?");
+                WriteLine($"\n{fih.Name} Hunger - \"{fih.Hunger}/100\"");
+                WriteLine("\n*REFRESH OFTEN as when on this screen the hunger is still increasing behind scenes even if it's not going up visually!*");
+                WriteLine("\n| 1 to feed | 2 to check fish tank | 3 to go back | 4 to REFRESH |");
 
-                string Key = Input();
+                //string Key = Input();
+                string Key = ReadLine();
 
                 if (Key == "1")
                 {
-                    OnFishDisplayScreen = false;
+                    
                     Program.Screen();
                     Feed(player, fih);
                 }
                 else if (Key == "2")
                 {
-                    OnFishDisplayScreen = false;
                     Program.Screen();
                     CheckTank(player, fih);
                 }
                 else if (Key == "3")
                 {
-                    OnFishDisplayScreen = false;
                     Program.Screen();
                     Program.EnterHouse();
+                }
+                else if (Key == "4")
+                {
+                    Program.Screen();
+                    Display(player, fih);
                 }
                 else
                 {
@@ -122,32 +124,32 @@ namespace Adopt_a_Fish_V1
 
         public void CheckTank(Player player, Fish fih)
         {
-            OnCheckTankScreen = true;
-          
+
             WriteLine("Recommended Temperture = 70-90");
             WriteLine($"\nCurrent Temperture = {Temp}");
 
             WriteLine("\n*leaving water out of temp for more than a minute reduce your fish life health*");
+            
 
-            WriteLine("\n1 to Leave, 2 to Increase Temp, 3 to Decrease Temp");
+            WriteLine("\n1 to Leave, 2 to Increase Temp, 3 to Decrease Temp, 4 to Refresh Page");
 
             string Key = Input();
 
             if(Key == "1")
             {
-                OnCheckTankScreen = false;
+               
                 Program.Screen();
                 Display(player, fih);
             }
             else if (Key == "2")
             {
-                Temp = Temp + 2;
+                Temp += 2;
                 Program.Screen();
                 CheckTank(player, fih);
             }
             else if (Key == "3")
             {
-                Temp = Temp - 2;
+                Temp -= 2;
                 Program.Screen();
                 CheckTank(player, fih);
             }

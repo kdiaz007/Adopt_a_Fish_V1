@@ -30,7 +30,7 @@ namespace Adopt_a_Fish_V1
 
         public void Eat()
         {
-            Hunger -= 5;
+            Hunger -= 20;
             //Lose 5 Hunger
         }
 

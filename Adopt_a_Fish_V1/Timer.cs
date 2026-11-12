@@ -55,8 +55,6 @@ namespace Adopt_a_Fish_V1
 
             ReadLine();
 
-           
-            //WriteLine("| Return |");
         }
 
         private static void RunMainTimer()
@@ -120,12 +118,7 @@ namespace Adopt_a_Fish_V1
             {
                 Program.FishSwim();
             }
-
-            if (Tank.OnFishDisplayScreen == true)
-            {
-                Clear();
-                Program.VisitFish();
-            }
+          
         }
 
         private static void OnTwoMinTimedEvent(Object source, ElapsedEventArgs e)
@@ -137,12 +130,7 @@ namespace Adopt_a_Fish_V1
                 Program.Warming();
             }
 
-            if (Tank.OnCheckTankScreen == true)
-            {
-                Clear();
-                Program.TankChecking();
-            }
-
+            
         }
 
 
