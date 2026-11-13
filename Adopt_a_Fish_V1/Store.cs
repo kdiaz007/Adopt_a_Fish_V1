@@ -15,7 +15,7 @@ namespace Adopt_a_Fish_V1
         public string Cashier = names[random.Next(names.Length)];
         private int ChangeAmt = 1; //What I am using to change the amount in cart
         public int Stock = 0; //This is what's value is currently in your cart
-        private int FishFood = 20;
+        private int FishFood = 1;
 
         public void Payment(Player player)
         {
@@ -41,7 +41,7 @@ namespace Adopt_a_Fish_V1
                 }
                 if (player.HasFish == false && Stock > 0)
                 {
-                    WriteLine($"You currently have one Betta splendens Fish ($80.00) in cart, will that be all?");
+                    WriteLine($"You currently have one Betta splendens Fish ($10.00) in cart, will that be all?");
                 }
                 else
                 {
@@ -58,10 +58,10 @@ namespace Adopt_a_Fish_V1
                         WriteLine($"{player.Name}: Yes that will be all.");
                         ReadKey();
                         Program.Screen();
-                        WriteLine($"{Cashier}: Your total will be 80 dollars.");
+                        WriteLine($"{Cashier}: Your total will be 10 dollars.");
                         WriteLine("\nPay Amount");
                         ReadKey();
-                        player.Money = player.Money - 80;
+                        player.Money = player.Money - 10;
                         player.HasFish = true;
                         Stock = 0;
                         WriteLine($"\n{Cashier}: Here you go.");

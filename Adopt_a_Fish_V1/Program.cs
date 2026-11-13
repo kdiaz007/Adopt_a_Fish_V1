@@ -18,7 +18,7 @@ namespace Adopt_a_Fish_V1
 
         static House house = new House();
         static Player player = new Player();
-        static Fish fih = new Fish(); 
+        public static Fish fih = new Fish(); 
         static Outside outside = new Outside();
         
 

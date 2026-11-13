@@ -9,11 +9,12 @@ namespace Adopt_a_Fish_V1
     public class Fish
     {
         private string Species = "Betta splendens";
-        private int Age;
+        public int MaxAge = 3;
         public int Hunger = 0;
         private string Color;
-        public int Life;
-        private int LifeSpent;
+        public int Life = 100;
+        public int Endurance = 100;
+        public int LifeSpent;
         public string Name;
 
         public string Input()

@@ -83,6 +83,12 @@ namespace Adopt_a_Fish_V1
 
         private static void OnMainTimedEvent(Object source, ElapsedEventArgs e)
         {
+            if(Player.HasNamedFish == true && (Program.fih.Life == 0 ||  Program.fih.MaxAge >= 1))
+            {
+                GameOver();
+                return;
+            }
+
             RawTime += 128.5714;
 
             double hoursPassed = RawTime / 3600.0;
@@ -93,20 +99,6 @@ namespace Adopt_a_Fish_V1
 
             timeDisplay = $"{currentHour:D2}:{currentMinute:D2}";
 
-
-            //Clear();
-            //WriteLine($"The time is {timeDisplay}.");
-            /*
-            if (Has5Passed == true)
-            {
-                Has5Passed = false;
-            }
-
-            if (Has2MinPassed == true)
-            {
-                Has2MinPassed = false;
-            }
-            */
             DayEnd();
 
         }
@@ -156,7 +148,7 @@ namespace Adopt_a_Fish_V1
                 if (Key == "x")
                 {
                     Clear();
-                    Program.EnterHouse();
+                    NewDay();
                 }
                 else
                 {
@@ -165,9 +157,35 @@ namespace Adopt_a_Fish_V1
             }
         }
 
-        public void NewDay() //NewDay will reset RawTime back to 0
+        public static void NewDay() //NewDay will reset RawTime back to 0
         {
-            throw new System.NotImplementedException();
+            
+            TimeDisplay();
+            Program.Warming();
+            Program.Warming();
+            Program.fih.LifeSpent += 1;
+            Program.fih.MaxAge -= 1;
+            Program.EnterHouse();
+        }
+
+        public static void GameOver()
+        
+        {
+            MainTimer?.Stop();
+            MainTimer?.Dispose();
+            FiveTimer?.Stop();
+            FiveTimer?.Dispose();
+            TwoMinTimer?.Stop();
+            TwoMinTimer?.Dispose();
+
+
+            Clear();
+            WriteLine("GAME OVER!");
+            WriteLine($"\n{Program.fih.Name} has died.");
+            Write($"\n{Program.fih.MaxAge}");
+            Write($"\n{Program.fih.Life}");
+            ReadKey();
+            //throw new System.NotImplementedException();
         }
     }
 }

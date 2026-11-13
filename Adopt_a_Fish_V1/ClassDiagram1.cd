@@ -3,42 +3,42 @@
   <Class Name="Adopt_a_Fish_V1.Program">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAIAAAGAABAAAAAEAAAAAAAABAAAABABCAAI=</HashCode>
+      <HashCode>AAAAAAEAAIAAAGAABAAAEAEAAAAAAQABAAAABIACAAI=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Adopt_a_Fish_V1.Player">
     <Position X="4.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYQAgAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAIAAAABA=</HashCode>
+      <HashCode>AAQQAAAAAAAAAAAAAEAAAAQAAAAAAgAAAAAAAABAABA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Adopt_a_Fish_V1.Fish">
     <Position X="6.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIEAAAAEQAAAAAAAEAAAQQAEAAAICBAAEAAgAABAAA=</HashCode>
+      <HashCode>AAAEAAAAEQAAAAAACAAAAQQAEAAAICBAAAAAgAABAAA=</HashCode>
       <FileName>Fish.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Adopt_a_Fish_V1.Tank">
     <Position X="8.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAABAEAAAAAAAAAAAAAAARAAAABAAAAAAAIggAAAAAA=</HashCode>
+      <HashCode>oAAAAgAAAAAAEAAAAAAAAQAAEAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Adopt_a_Fish_V1.Timer">
     <Position X="8.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAREEAACEVBAAgDgEAAAIEAAAAAADAAAAAAAAAAA=</HashCode>
+      <HashCode>gAACgREEAACEVBAAhDgEAAAIEAAAAAADAAAAAAAAAAA=</HashCode>
       <FileName>Timer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Adopt_a_Fish_V1.Job">
-    <Position X="2.25" Y="1.75" Width="1.5" />
+    <Position X="2.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAADAAIQAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAADAAIQAAAAAAIAAAAAAAAABAAAA=</HashCode>
       <FileName>Job.cs</FileName>
     </TypeIdentifier>
   </Class>

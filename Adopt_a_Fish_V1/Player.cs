@@ -13,7 +13,7 @@ namespace Adopt_a_Fish_V1
         public int Age = 20;
         public double Money = 100;
         public bool HasFish = false;
-        public bool HasNamedFish = false;
+        public static bool HasNamedFish = false;
         public int FishFood = 0;
 
     }
